@@ -1,0 +1,83 @@
+definitions:
+  controllers.LoginBody:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    required:
+    - password
+    - username
+    type: object
+  models.User:
+    properties:
+      createdAt:
+        type: string
+      id:
+        type: integer
+      password:
+        description: 'Required: true'
+        type: string
+      updatedAt:
+        type: string
+      username:
+        description: 'Required: true'
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /api/v0/login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: des
+        in: body
+        name: JsonData
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.LoginBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      tags:
+      - auth
+  /api/v0/user:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: user
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      tags:
+      - user
+  /api/v0/users:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      tags:
+      - user
+swagger: "2.0"

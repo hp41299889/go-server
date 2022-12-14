@@ -1,0 +1,3 @@
+12/6: routes and controller is ok, and gin run live reload not working
+12/7: add air live reload and add userModel create & read service
+12/10: add swaggerUI and add auth route & controller
